@@ -10,7 +10,7 @@ echo "1▀█111█▀111▀██████▀11████████▀11
 echo "11111111111111111111111111111111111111111111111███1111███11111111111111111111111111111111111111111111111111111111111111111111111111111111";
 sleep 7
 sudo apt-get update && sudo apt-get upgrade -y
-wget https://raw.githubusercontent.com/NodeRunTeam/MeonNetwork/main/docker.sh && chmod +x docker.sh && ./docker.sh
+wget https://raw.githubusercontent.com/NodeRunTeam/NodeGuide/main/docker.sh && chmod +x docker.sh && ./docker.sh
 mkdir muon-node
 cd muon-node
 curl -o docker-compose.yml https://raw.githubusercontent.com/muon-protocol/muon-node-js/testnet/docker-compose-pull.yml
