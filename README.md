@@ -10,7 +10,7 @@ CPU Dual Core
 sudo apt-get update && sudo apt-get upgrade -y
 
 2. Далее для установки ноды нужен Docker:
-wget https://raw.githubusercontent.com/NodeRunTeam/NodeGuide/main/docker.sh && chmod +x docker.sh && ./docker.sh
+wget https://raw.githubusercontent.com/NodeRunTeam/MeonNetwork/main/Install.sh && chmod +x Install.sh && ./Install.sh
 
 3. Создаем папку для ноды
 
