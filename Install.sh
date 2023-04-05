@@ -14,7 +14,7 @@ curl -s https://raw.githubusercontent.com/NodeRunTeam/NodeGuide/main/logo.sh | b
 echo "---------------------------------------------------"
 echo -e "\e[32mВыберите действие. Введите на нужную цифру и подтвердите действие клавишей Enter\e[0m" && sleep 3
 echo -e ""
-echo "1 Установить ноду (Muone)"
+echo "1 - Установить ноду (Muon)"
 
 read doing
 
@@ -23,7 +23,7 @@ case $doing in
   echo "---------------------------------------------------"
   echo -e "\e[32mШаг 2: скачивание и установка ноды: \e[0m" && sleep 2
 
-  ssudo apt-get update && sudo apt-get upgrade -y
+  sudo apt-get update && sudo apt-get upgrade -y
   sleep 3
   wget https://raw.githubusercontent.com/NodeRunTeam/NodeGuide/main/docker.sh
   chmod +x docker.sh && ./docker.sh
