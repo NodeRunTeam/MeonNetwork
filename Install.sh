@@ -42,4 +42,35 @@ case $doing in
   echo -e "Проверьте свою ноду Alice: \e[32mhttps://alice.muon.net/\e[39m"
   echo "---------------------------------------------------"
   ;;
+  2) 
+  echo "---------------------------------------------------"
+  echo -e "\e[32mШаг 2: Обновляем ноду Meon: \e[0m" && sleep 2
+
+  cd ~
+  sleep 3
+  docker cp muon-node:/usr/src/muon-node-js/.env ./backup.env
+  sleep 3
+  docker stop muon-node redis mongo
+  docker rm muon-node redis mongo
+  rm muon-node-js -rf
+  sleep 3
+  curl -o docker-compose.yml https://raw.githubusercontent.com/muon-protocol/muon-node-js/testnet/docker-compose-pull.yml
+  docker-compose pull
+  docker-compose up -d
+  sleep 3
+  docker cp backup.env muon-node:/usr/src/muon-node-js/backup.env
+  docker exec -it muon-node ./node_modules/.bin/ts-node ./src/cmd keys restore backup.env
+  docker restart muon-node
+  sleep 3
+  sudo ufw allow 8000/tcp
+  sudo ufw allow 4000/tcp
+
+  echo "---------------------------------------------------"
+  echo -e "Обновление ноды Meon завершена."
+  echo "---------------------------------------------------"
+  sleep 1
+  echo "---------------------------------------------------"
+  echo -e "Проверьте свою ноду Alice: \e[32mhttps://alice.muon.net/\e[39m"
+  echo "---------------------------------------------------"
+  ;;
 esac
